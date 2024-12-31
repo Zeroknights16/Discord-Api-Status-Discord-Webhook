@@ -1,21 +1,50 @@
-MIT License
+Join [Iynx Development](https://discord.iynxdev.com/) for latest updates. This project is heavily inspired of Laennart's [Discord api status webhook](Laennart/discord-api-status-webhook)!
 
-Copyright (c) [year] [fullname]
+# Discord API Status Webhook
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+### Table of Contents
+1. [Introduction](#introduction)
+2. [Getting started](#getting-started)
+3. [Creating a webhook](#creating-a-webhook)
+4. [Configuration](#configuration)
+5. [Run it!](#run-it)
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+## Introduction
+This project uses the [discord.js](https://github.com/discordjs/discord.js) library to create a webhook which can display past and current status-changes of the official Discord API.
+The information is taken from [discordstatus.com](https://discordstatus.com/), the official Discord API's status page.
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+The resulting messages look like this:
+
+![result](assets/result.png)
+
+## Getting started
+Clone this repository by running the following commands:
+```shell
+git clone https://github.com/Zeroknights16/Discord-Api-Status-Discord-Webhook.git
+cd discord-api-status-discord-webhook/
+```
+
+## Creating a webhook
+1. Navigate to your discord server and choose a channel where you want the updates to be displayed.
+2. Go into the channels settings and navigate to the Integrations menu.
+![channel-settings](assets/channel-settings.png)
+3. Click on "Create Webhook", give it a name and save your changes.
+![create-webhook](assets/create-webhook.png)
+4. Copy the Webhook URL into the [config](#configuration) file.
+
+## Configuration
+Before you can start using the webhook you have to create a `config.json` file in the root directory of the project. Now paste your Webhook URL into the config file.
+```json
+{
+  "url": "Webhook-Url",
+  "ignoreDays": 30,
+  "intervalCheckingMinutes": 5
+}
+```
+
+## Run it!
+Now we can start the webhook by typing the following into the terminal:
+```shell
+npm install
+node index.js
+```
