@@ -1,0 +1,5 @@
+{
+    "webhook_url": "Webhook-Url",
+    "ignoreDays": 30,
+    "intervalCheckingMinutes": 5
+}
