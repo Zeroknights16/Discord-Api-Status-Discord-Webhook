@@ -41,6 +41,11 @@ module.exports = class DiscordIncidentHandler {
         }
 
         if (!message || !message.embeds.length) {
+            await this.createMessage(incident);
+            return;
+        }
+
+        if (message.embeds.length == 0) {
             await this.updateMessage(message, incident);
             return;
         }
