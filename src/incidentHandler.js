@@ -89,7 +89,7 @@ module.exports = class DiscordIncidentHandler {
 
     async updateMessage(message, incident) {
         console.log(`(:) Updating message for incident ${incident.id}.`);
-        await message.edit({ embeds: [this.buildIncidentEmbed(incident)] });
+        await this.webhookClient.editMessage(message.id, { embeds: [this.buildIncidentEmbed(incident)] });
     }
 
     async start() {
